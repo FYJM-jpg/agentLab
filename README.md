@@ -1,7 +1,7 @@
 <img width="1145" height="913" alt="image" src="https://github.com/user-attachments/assets/8e966fc8-aa7f-4601-bbe0-6c7aabc39efa" />
 <img width="1144" height="910" alt="image" src="https://github.com/user-attachments/assets/bd743c0f-30e5-400f-b976-7cbe245fead1" />
 
-## Agent Lab 管理后台
+## Agent Lab 管理后台 V1
 
 一个同时集成 **Python Agent 引擎** 和 **Next.js + Tailwind 管理后台** 的实验项目，用来管理、预览和测试本地 `skills` 目录中的技能。
 
@@ -10,6 +10,9 @@
 - **目标**：在一个页面中完成技能盘点、启用/停用、以及对 Agent 的快速对话测试。
 
 ---
+
+本版本的心路历程：https://docs.google.com/document/d/10FMWB9m1atIvQ2muA2ejxV2HJtFUq6gleU-2x1tOspg/edit?usp=sharing
+
 
 ## 功能概览
 
