@@ -1,0 +1,49 @@
+# 依赖
+node_modules/
+venv/
+.venv/
+env/
+
+# 环境变量与敏感信息
+.env
+.env.local
+.env.*.local
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 编译 / 构建产物
+dist/
+build/
+.next/
+out/
+
+# Cursor 本地配置与索引（可选，不提交则取消下一行注释）
+.cursor/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+
+# 日志与调试
+*.log
+npm-debug.log*
+.pnpm-debug.log*
+
+# 测试与覆盖率
+coverage/
+.nyc_output/
+.pytest_cache/
+htmlcov/
+
+# 编辑器 / IDE（可选）
+.idea/
+.vscode/
+*.swp
+*.swo
