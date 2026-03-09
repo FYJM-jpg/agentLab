@@ -1,3 +1,6 @@
+<img width="1145" height="913" alt="image" src="https://github.com/user-attachments/assets/8e966fc8-aa7f-4601-bbe0-6c7aabc39efa" />
+<img width="1144" height="910" alt="image" src="https://github.com/user-attachments/assets/bd743c0f-30e5-400f-b976-7cbe245fead1" />
+
 ## Agent Lab 管理后台
 
 一个同时集成 **Python Agent 引擎** 和 **Next.js + Tailwind 管理后台** 的实验项目，用来管理、预览和测试本地 `skills` 目录中的技能。
