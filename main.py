@@ -105,10 +105,8 @@ async def main():
         print(f"❌ 运行报错: {e}")
 
 if __name__ == "__main__":
-    # 无 PORT 时走本地 CLI 测试；Render 等平台会设置 PORT，直接启动 Web 服务
-    if os.environ.get("PORT"):
-        import uvicorn
-        port = int(os.environ.get("PORT", 8000))
-        uvicorn.run(app, host="0.0.0.0", port=port)
-    else:
+    # 如果本地运行且没有 PORT，走 CLI 测试模式
+    if not os.environ.get("PORT"):
         asyncio.run(main())
+    # 注意：Render 启动命令 uvicorn main:app 会自动寻找上方的 app 变量，
+    # 这里的 if 块其实在 Render 部署时是不被执行的。
