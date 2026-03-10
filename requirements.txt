@@ -1,0 +1,3 @@
+pydantic_ai==1.67.0
+python-dotenv==1.2.2
+tavily_python==0.7.22

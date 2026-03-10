@@ -4,6 +4,8 @@ import importlib
 import inspect
 from pathlib import Path
 from dotenv import load_dotenv
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.openai import OpenAIChatModel
 
@@ -13,6 +15,22 @@ load_dotenv()
 # 配置 DeepSeek
 os.environ["OPENAI_BASE_URL"] = "https://api.deepseek.com/v1"
 os.environ["OPENAI_API_KEY"] = os.getenv("DEEPSEEK_API_KEY")
+
+# FastAPI 应用（供 Render 部署，Vercel 前端跨域调用）
+app = FastAPI(title="Agent Lab Backend")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 线上生产建议改为你的 Vercel 域名，如 ["https://xxx.vercel.app"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/")
+def read_root():
+    return {"status": "Agent Lab Backend is Running"}
 
 # 2. 自动化加载引擎
 def load_skills_and_register(agent_instance):
@@ -87,4 +105,10 @@ async def main():
         print(f"❌ 运行报错: {e}")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    # 无 PORT 时走本地 CLI 测试；Render 等平台会设置 PORT，直接启动 Web 服务
+    if os.environ.get("PORT"):
+        import uvicorn
+        port = int(os.environ.get("PORT", 8000))
+        uvicorn.run(app, host="0.0.0.0", port=port)
+    else:
+        asyncio.run(main())
