@@ -80,6 +80,7 @@ def read_root():
     return {"status": "Agent Lab Backend is Running", "skills_loaded": True}
 
 @app.post("/chat")
+@app.post("/chat/") # 兼容处理 Vercel 可能带上的末尾斜杠
 async def chat_endpoint(request: ChatRequest):
     """
     接收来自 Vercel 前端的 POST 请求
