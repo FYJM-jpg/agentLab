@@ -1,17 +1,24 @@
 <img width="1145" height="913" alt="image" src="https://github.com/user-attachments/assets/8e966fc8-aa7f-4601-bbe0-6c7aabc39efa" />
 <img width="1144" height="910" alt="image" src="https://github.com/user-attachments/assets/bd743c0f-30e5-400f-b976-7cbe245fead1" />
 
-## Agent Lab 管理后台 V1
+WHY：项目驱动力与核心痛点
+作为一名在金融风控领域深耕的 BA，我始终在寻找一种能够平衡“开发灵活性”与“逻辑透明度”的 AI 协作方式。
+核心痛点：
+黑盒焦虑：主流 Agent 平台（如 Coze, Dify）虽强，但在处理多技能调度时，底层逻辑不够透明，难以进行精细化调试。
+开发路径分歧：传统的“自上而下”设计预设了过多场景。我需要一种**“自下而上”**的构建方式，从原子级需求出发，逐步编织协作网。
+基础设施限制：在特定网络环境下，需要一个极度轻量、可随时迁移、且能完美绕过网络干扰的私有实验场。
 
-一个同时集成 **Python Agent 引擎** 和 **Next.js + Tailwind 管理后台** 的实验项目，用来管理、预览和测试本地 `skills` 目录中的技能。
-
-- **后端大脑**：`main.py` + `skills/` 目录（每个子目录是一个技能，包含 `skill.md` + 逻辑文件）。
-- **前端控制台**：`app` 目录下的 Next.js App Router + Tailwind UI + Lucide 图标。
-- **目标**：在一个页面中完成技能盘点、启用/停用、以及对 Agent 的快速对话测试。
-
+WHAT：项目定义与预期效果
+Agent Lab 是一个基于 Pydantic AI 框架构建的、可扩展的 AI Agent 底层实验平台，旨在作为后续复杂项目（如 OpenClaw）的试验田。
+核心功能：
+文件夹即技能（Folder-as-a-Skill）：
+魂（System Prompt）：.md 文件定义认知边界。
+肉（Tool Logic）：.py 文件定义具象执行能力。
+动态渲染 Dashboard：前端实时扫描后端挂载技能，支持能力“热插拔”。
+确定性链路：通过 Web Search 技能实测，实现从“深度检索”到“逻辑推理”的完整闭环。
 ---
 
-本版本的心路历程：https://docs.google.com/document/d/10FMWB9m1atIvQ2muA2ejxV2HJtFUq6gleU-2x1tOspg/edit?usp=sharing
+本版本的体验链接：fyjm-agent-site-2026.vercel.app
 
 
 ## 功能概览
@@ -127,34 +134,5 @@ agent1/
 └─ package.json         # 前端依赖与脚本
 ```
 
----
 
-## 环境与启动
-
-### 安装依赖
-
-```bash
-# 在项目根目录
-npm install
-
-# 如果之后单独添加了图标库，可补装：
-npm install lucide-react
-```
-
-### 启动前端
-
-```bash
-npm run dev
-# 浏览器访问 http://localhost:3000
-```
-
-### 启动 Python Agent（可选）
-
-保持原有方式运行你的 Agent（例如）：
-
-```bash
-python main.py
-```
-
-> 可以在后续将前端的 Agent 测试面板与该 Python Agent 通过 API 打通，实现真实的多技能推理与调用。
 
